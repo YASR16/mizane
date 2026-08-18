@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mizane
+      POSTGRES_PASSWORD: mizane
+      POSTGRES_DB: mizane
+    volumes:
+      - mizane_pg_prod:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mizane"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.production.local
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://mizane:mizane@postgres:5432/mizane
+    depends_on:
+      postgres:
+        condition: service_healthy
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+  purge:
+    image: curlimages/curl:8.11.1
+    restart: unless-stopped
+    env_file:
+      - .env.production.local
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "purge sidecar started"
+        while true; do
+          sleep 86400
+          curl -fsS -X POST "$${NEXT_PUBLIC_APP_URL}/api/cron/purge" \
+            -H "Authorization: Bearer $${CRON_SECRET}" || true
+        done
+    depends_on:
+      - app
+
+volumes:
+  mizane_pg_prod:
+  caddy_data:
+  caddy_config:

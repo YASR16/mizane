@@ -1,0 +1,175 @@
+{
+  "nav": {
+    "how": "Comment ça marche",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "login": "Connexion",
+    "cta": "Analyser mon CV"
+  },
+  "footer": {
+    "blurb": "Outil de diagnostic CV pour le marché marocain et francophone. Pas un générateur générique : un scan professionnel avant d’envoyer.",
+    "product": "Produit",
+    "analyze": "Analyser un CV",
+    "pricing": "Tarifs",
+    "how": "Comment ça marche",
+    "resources": "Ressources",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "about": "À propos",
+    "legal": "Légal",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "rights": "Tous droits réservés."
+  },
+  "hero": {
+    "kicker": "Diagnostic CV · Maroc",
+    "title": "Votre CV passe-t-il vraiment le filtre des recruteurs ?",
+    "sub": "Déposez votre fichier ici. Vous obtenez un score ATS, des points faibles réels, puis un rapport payant seulement si l’aperçu vous est utile.",
+    "cta": "Commencer l’analyse",
+    "secondary": "Voir comment ça marche",
+    "privacy": "Votre CV reste privé. Aucune indexation, aucun URL public. Suppression possible à tout moment."
+  },
+  "trust": {
+    "title": "Votre CV est analysé sur plusieurs critères professionnels",
+    "disclaimer": "Nous analysons votre CV selon des critères professionnels utilisés pour évaluer la lisibilité, la structure, le contenu et la compatibilité avec les systèmes ATS. Nous ne prétendons pas simuler l’ATS d’une entreprise précise."
+  },
+  "ctaBanner": {
+    "title": "Prêt à voir ce que votre CV dit vraiment ?",
+    "button": "Commencer l’analyse"
+  },
+  "upload": {
+    "title": "Déposez votre CV ici",
+    "or": "ou",
+    "choose": "Choisir mon CV",
+    "formats": "Formats acceptés : PDF, DOCX",
+    "max": "Taille maximale : 5 Mo",
+    "role": "Poste recherché (optionnel)",
+    "rolePlaceholder": "Ex. QA Automation Engineer",
+    "country": "Pays / marché cible",
+    "countryUnset": "Non précisé",
+    "jd": "Coller une offre d’emploi (optionnel)",
+    "jdPlaceholder": "Collez l’annonce pour calculer un score de correspondance.",
+    "submit": "Lancer l’analyse gratuite",
+    "steps": [
+      "CV reçu",
+      "Extraction du contenu",
+      "Analyse de la structure",
+      "Analyse ATS",
+      "Analyse des mots-clés",
+      "Génération de votre diagnostic"
+    ]
+  },
+  "paywall": {
+    "title": "Votre CV peut encore être amélioré.",
+    "sub": "Nous avons identifié plusieurs opportunités d’amélioration. Débloquez le diagnostic complet pour savoir exactement quoi modifier.",
+    "cta": "Débloquer mon rapport — {price}",
+    "note": "Paiement unique • Aucun abonnement"
+  },
+  "home": {
+    "howTitle": "Comment ça marche",
+    "analyzeTitle": "Ce que nous analysons",
+    "reportTitle": "Un rapport qui dit quoi changer — pas seulement un score",
+    "reportBody": "Chaque problème suit le même schéma : ce qui ne va pas, pourquoi ça compte, comment le corriger, et un exemple concret tiré de votre CV.",
+    "freeStrengths": "2 points forts visibles gratuitement",
+    "freeIssues": "2 problèmes expliqués gratuitement",
+    "paidHint": "Réécritures, priorités, mots-clés du poste et PDF dans le rapport payant",
+    "sampleLabel": "Exemple de diagnostic (illustration)",
+    "pricingTitle": "Un paiement unique. Pas d’abonnement.",
+    "pricingSub": "L’analyse gratuite montre votre score et des problèmes réels. Le rapport complet explique exactement quoi modifier.",
+    "faqTitle": "Questions fréquentes",
+    "criteria": [
+      { "title": "ATS", "body": "Détection des problèmes qui peuvent empêcher votre CV d’être correctement lu par les systèmes ATS." },
+      { "title": "Mots-clés", "body": "Analyse des compétences et mots-clés importants pour votre profil et le poste visé." },
+      { "title": "Expérience", "body": "Évaluation de l’impact, de la précision et de la formulation de vos expériences." },
+      { "title": "Structure", "body": "Analyse de la hiérarchie, de la lisibilité et de l’organisation des sections." },
+      { "title": "Recruteur", "body": "Analyse de la capacité du CV à communiquer rapidement votre valeur." },
+      { "title": "Personnalisation", "body": "Recommandations adaptées à votre profil, au marché choisi et au poste visé." }
+    ],
+    "steps": [
+      { "title": "Uploadez", "body": "PDF ou DOCX. Optionnellement le poste visé, le pays cible ou une offre." },
+      { "title": "Scan", "body": "Extraction réelle du document, puis analyse structurée." },
+      { "title": "Score", "body": "Vous voyez un score, des points forts et des problèmes concrets." },
+      { "title": "Corrigez", "body": "Débloquez le rapport pour le plan d’action, puis postulez." }
+    ],
+    "checklist": [
+      "Coordonnées, e-mail professionnel, LinkedIn",
+      "Résumé / profil professionnel",
+      "Ordre et nommage des sections",
+      "Risques ATS : colonnes, tableaux, icônes, scans",
+      "Mots-clés techniques et métier",
+      "Puces d’expérience : action, technologie, résultat",
+      "Compétences supportées par le parcours",
+      "Formation, langues, densité visuelle"
+    ],
+    "faqs": [
+      {
+        "q": "L’analyse est-elle gratuite ?",
+        "a": "Oui : score global, sous-scores, 2 points forts et 2 problèmes expliqués. Le diagnostic détaillé, les priorités et le PDF sont inclus dans l’analyse complète, paiement unique."
+      },
+      {
+        "q": "Mon CV est-il compatible ATS ?",
+        "a": "Nous indiquons des caractéristiques généralement favorables ou défavorables aux ATS. Nous ne prétendons pas reproduire le score d’un logiciel d’une entreprise précise."
+      },
+      {
+        "q": "Mes données sont-elles protégées ?",
+        "a": "Les fichiers sont stockés de façon privée, sans URL publique, et peuvent être supprimés. Conservés 30 jours par défaut, avec purge automatique. Voir la page Confidentialité (Loi 09-08 / CNDP)."
+      },
+      {
+        "q": "Le paiement est-il un abonnement ?",
+        "a": "Non, le paiement est unique."
+      }
+    ]
+  },
+  "pricing": {
+    "analysis": "Analyse CV",
+    "optimized": "CV Optimisé",
+    "start": "Commencer",
+    "analysisIncludes": [
+      "Analyse ATS complète",
+      "Analyse détaillée des expériences",
+      "Mots-clés détectés et manquants",
+      "Corrections prioritaires",
+      "Recommandations personnalisées",
+      "Analyse du profil professionnel",
+      "Rapport PDF"
+    ],
+    "optimizedIncludes": [
+      "Tout le rapport d'analyse",
+      "CV réécrit par IA",
+      "Version ATS-friendly",
+      "Résumé professionnel amélioré",
+      "Expériences reformulées",
+      "Optimisation des mots-clés",
+      "Téléchargement du CV"
+    ]
+  },
+  "analyser": {
+    "title": "Déposer votre CV",
+    "sub": "Score gratuit en quelques secondes. Le rapport complet reste derrière un paiement unique — seulement si l’aperçu vous est utile.",
+    "privacy": "Fichier privé, non indexé, suppression possible à tout moment."
+  },
+  "payment": {
+    "checking": "Vérification du paiement…",
+    "missing": "Commande introuvable.",
+    "pending": "Paiement en attente. Aucun rapport n’a été débloqué.",
+    "failed": "Le paiement n’a pas pu être confirmé. Aucun rapport n’a été débloqué.",
+    "forbidden": "Vous n’êtes pas autorisé à confirmer cette commande.",
+    "success": "Paiement confirmé. Votre rapport est disponible.",
+    "openReport": "Ouvrir le rapport",
+    "retry": "Réessayer"
+  },
+  "deleteCv": {
+    "button": "Supprimer mon CV",
+    "confirm": "Supprimer définitivement ce CV, le texte extrait et l’analyse associée ?",
+    "yes": "Oui, supprimer",
+    "cancel": "Annuler",
+    "done": "CV supprimé. Les fichiers et le texte extrait ne sont plus conservés.",
+    "error": "La suppression a échoué."
+  },
+  "errors": {
+    "generic": "Une erreur s’est produite.",
+    "unauthorized": "Non autorisé.",
+    "invalidFile": "Formats acceptés : PDF ou DOCX valides."
+  }
+}

@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mizane
+      POSTGRES_PASSWORD: mizane
+      POSTGRES_DB: mizane
+    ports:
+      - "5432:5432"
+    volumes:
+      - mizane_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mizane"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Production-like app: NODE_ENV=production refuses SQLite.
+  # Example:
+  # docker compose up postgres
+  # DATABASE_URL=postgresql://mizane:mizane@localhost:5432/mizane PAYMENT_PROVIDER=payzone ...
+
+volumes:
+  mizane_pg:

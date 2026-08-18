@@ -1,0 +1,310 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Local development may use SQLite only when NODE_ENV is not production.
+// This schema targets PostgreSQL. Production-like validation and production
+// MUST use DATABASE_URL=postgresql://...
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String    @id @default(cuid())
+  name              String?
+  email             String    @unique
+  emailVerified     DateTime?
+  image             String?
+  passwordHash      String?
+  role              String    @default("USER")
+  locale            String    @default("fr")
+  targetProfession  String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  documents     CvDocument[]
+  analyses      Analysis[]
+  payments      Payment[]
+  generatedCvs  GeneratedCv[]
+  feedback      Feedback[]
+  auditLogs     AuditLog[]
+  jobMatches    JobMatch[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model CvDocument {
+  id           String   @id @default(cuid())
+  userId       String?
+  guestToken   String?
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+  storageKey   String
+  checksum     String
+  extractedText String?
+  pageCount    Int?
+  isScanned    Boolean  @default(false)
+  languageHint String?
+  deletedAt    DateTime?
+  purgeAt      DateTime
+  createdAt    DateTime @default(now())
+
+  user      User?      @relation(fields: [userId], references: [id], onDelete: SetNull)
+  analyses  Analysis[]
+
+  @@index([userId])
+  @@index([guestToken])
+  @@index([purgeAt])
+  @@index([checksum])
+}
+
+model Analysis {
+  id              String   @id @default(cuid())
+  documentId      String
+  userId          String?
+  guestToken      String?
+  status          String   @default("PENDING")
+  engine          String   @default("heuristic")
+  targetRole      String?
+  targetCountry   String   @default("UNSET")
+  targetLanguage  String   @default("fr")
+  jobDescription  String?
+  overallScore    Int?
+  previewUnlocked Boolean  @default(true)
+  reportUnlocked  Boolean  @default(false)
+  optimizerUnlocked Boolean @default(false)
+  errorCode       String?
+  errorMessage    String?
+  resultJson      String?
+  promptTokens    Int      @default(0)
+  completionTokens Int     @default(0)
+  estimatedCostUsd Float   @default(0)
+  createdAt       DateTime @default(now())
+  completedAt     DateTime?
+
+  document       CvDocument      @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  user           User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+  scores         AnalysisScore?
+  recommendations Recommendation[]
+  payments       Payment[]
+  generatedCvs   GeneratedCv[]
+  jobMatches     JobMatch[]
+
+  @@index([userId])
+  @@index([guestToken])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model AnalysisScore {
+  id               String @id @default(cuid())
+  analysisId       String @unique
+  ats              Int
+  structure        Int
+  keywords         Int
+  experience       Int
+  readability      Int
+  professionalism  Int
+  visual           Int
+  jobMatch         Int?
+
+  analysis Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+}
+
+model Recommendation {
+  id          String  @id @default(cuid())
+  analysisId  String
+  category    String
+  severity    String
+  isLocked    Boolean @default(true)
+  isStrength  Boolean @default(false)
+  title       String
+  problem     String
+  why         String
+  how         String
+  exampleBefore String?
+  exampleAfter  String?
+  impactRank  Int     @default(99)
+
+  analysis Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+
+  @@index([analysisId, impactRank])
+}
+
+model JobDescription {
+  id        String   @id @default(cuid())
+  title     String?
+  company   String?
+  rawText   String
+  language  String   @default("fr")
+  createdAt DateTime @default(now())
+
+  matches JobMatch[]
+}
+
+model JobMatch {
+  id                 String   @id @default(cuid())
+  analysisId         String
+  jobDescriptionId   String
+  userId             String?
+  score              Int
+  matchingSkillsJson String
+  missingKeywordsJson String
+  missingRequirementsJson String
+  unlocked           Boolean  @default(false)
+  createdAt          DateTime @default(now())
+
+  analysis        Analysis        @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  jobDescription  JobDescription  @relation(fields: [jobDescriptionId], references: [id], onDelete: Cascade)
+  user            User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([analysisId])
+}
+
+model Payment {
+  id              String    @id @default(cuid())
+  orderId         String    @unique
+  userId          String?
+  analysisId      String?
+  guestToken      String?
+  productCode     String
+  amountMad       Int
+  currency        String    @default("MAD")
+  status          String    @default("PENDING")
+  provider        String
+  providerRef     String?
+  transactionId   String?
+  checkoutUrl     String?
+  failureReason   String?
+  paidAt          DateTime?
+  refundedAt      DateTime?
+  rawPayload      String?
+  webhookHash     String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user     User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  analysis Analysis? @relation(fields: [analysisId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([providerRef])
+  @@index([analysisId])
+  @@index([analysisId, productCode, status])
+}
+
+model WebhookEvent {
+  id        String   @id @default(cuid())
+  provider  String
+  eventHash String   @unique
+  orderId   String
+  createdAt DateTime @default(now())
+
+  @@index([orderId])
+}
+
+model GeneratedCv {
+  id            String   @id @default(cuid())
+  analysisId    String
+  userId        String?
+  language      String   @default("fr")
+  targetRole    String?
+  targetCountry String   @default("UNSET")
+  contentJson   String
+  createdAt     DateTime @default(now())
+
+  analysis Analysis @relation(fields: [analysisId], references: [id], onDelete: Cascade)
+  user     User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String?
+  ip        String?
+  meta      String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([action, createdAt])
+  @@index([entity, entityId])
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  name       String
+  sessionId  String?
+  userId     String?
+  analysisId String?
+  locale     String?
+  path       String?
+  meta       String?
+  createdAt  DateTime @default(now())
+
+  @@index([name, createdAt])
+  @@index([sessionId])
+}
+
+model Feedback {
+  id         String   @id @default(cuid())
+  userId     String?
+  analysisId String?
+  rating     Int
+  comment    String?
+  city       String?
+  profession String?
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model SiteStat {
+  id    String @id
+  value Int    @default(0)
+}
+
+model PrivateObject {
+  key       String   @id
+  bytes     Bytes
+  createdAt DateTime @default(now())
+}

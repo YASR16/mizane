@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: mizane
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MIZANE_ENV
+        value: staging
+      - key: PAYMENT_PROVIDER
+        value: disabled
+      - key: STORAGE_DRIVER
+        value: postgres
+      - key: AUTH_TRUST_HOST
+        value: "true"
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=384
+      - key: DATABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      - key: AUTH_URL
+        sync: false
+      - key: AUTH_SECRET
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: GOOGLE_SITE_VERIFICATION
+        sync: false
+      - key: BING_SITE_VERIFICATION
+        sync: false
+      - key: INDEXNOW_KEY
+        sync: false

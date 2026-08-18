@@ -1,0 +1,175 @@
+{
+  "nav": {
+    "how": "How it works",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "login": "Sign in",
+    "cta": "Scan my CV"
+  },
+  "footer": {
+    "blurb": "CV diagnostic for Morocco and French-speaking job markets. Not a generic generator: a professional scan before you apply.",
+    "product": "Product",
+    "analyze": "Analyze a CV",
+    "pricing": "Pricing",
+    "how": "How it works",
+    "resources": "Resources",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "about": "About",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "All rights reserved."
+  },
+  "hero": {
+    "kicker": "CV diagnostic · Morocco",
+    "title": "Does your CV really pass recruiter filters?",
+    "sub": "Drop your file here. You get an ATS score and real issues, then a paid report only if the preview is useful.",
+    "cta": "Analyze my CV for free",
+    "secondary": "See how it works",
+    "privacy": "Your CV stays private. No public URLs. No search indexing. You can delete it anytime."
+  },
+  "trust": {
+    "title": "Your CV is reviewed against professional criteria",
+    "disclaimer": "We evaluate readability, structure, content and typical ATS compatibility. We do not claim to replicate a specific employer’s ATS."
+  },
+  "ctaBanner": {
+    "title": "Ready to see what your CV actually says?",
+    "button": "Analyze my CV for free"
+  },
+  "upload": {
+    "title": "Drop your CV here",
+    "or": "or",
+    "choose": "Choose my CV",
+    "formats": "Accepted formats: PDF, DOCX",
+    "max": "Max size: 5 MB",
+    "role": "Target role (optional)",
+    "rolePlaceholder": "e.g. QA Automation Engineer",
+    "country": "Target country / market",
+    "countryUnset": "Not specified",
+    "jd": "Paste a job description (optional)",
+    "jdPlaceholder": "Paste the posting to compute a job-match score.",
+    "submit": "Start free analysis",
+    "steps": [
+      "CV received",
+      "Content extraction",
+      "Structure analysis",
+      "ATS analysis",
+      "Keyword analysis",
+      "Building your diagnosis"
+    ]
+  },
+  "paywall": {
+    "title": "Your CV can still be improved.",
+    "sub": "We found several improvement opportunities. Unlock the full diagnosis to see exactly what to change.",
+    "cta": "Unlock my report — {price}",
+    "note": "One-time payment • No subscription"
+  },
+  "home": {
+    "howTitle": "How it works",
+    "analyzeTitle": "What we analyse",
+    "reportTitle": "A report that says what to change — not just a score",
+    "reportBody": "Every issue follows the same pattern: what is wrong, why it matters, how to fix it, and an example from your CV.",
+    "freeStrengths": "2 strengths visible for free",
+    "freeIssues": "2 issues explained for free",
+    "paidHint": "Rewrites, priorities, job keywords and PDF are in the paid report",
+    "sampleLabel": "Sample diagnosis (illustration)",
+    "pricingTitle": "One-time payment. No subscription.",
+    "pricingSub": "The free analysis shows your score and real issues. The full report explains exactly what to change.",
+    "faqTitle": "Frequently asked questions",
+    "criteria": [
+      { "title": "ATS", "body": "We flag issues that can stop an ATS from reading your CV correctly." },
+      { "title": "Keywords", "body": "Skills and keywords that matter for your profile and target role." },
+      { "title": "Experience", "body": "Impact, precision and wording of your work history." },
+      { "title": "Structure", "body": "Hierarchy, readability and section organisation." },
+      { "title": "Recruiter", "body": "How quickly a recruiter can understand your value." },
+      { "title": "Personalisation", "body": "Recommendations for your profile, chosen market and target role." }
+    ],
+    "steps": [
+      { "title": "Upload", "body": "PDF or DOCX. Optionally add the target role, country or a job post." },
+      { "title": "Scan", "body": "Real document extraction, then structured analysis." },
+      { "title": "Score", "body": "You see a score, strengths and concrete problems." },
+      { "title": "Fix", "body": "Unlock the report for the action plan, then apply." }
+    ],
+    "checklist": [
+      "Contact details, professional email, LinkedIn",
+      "Professional summary",
+      "Section order and naming",
+      "ATS risks: columns, tables, icons, scans",
+      "Technical and role keywords",
+      "Experience bullets: action, technology, result",
+      "Skills supported by your history",
+      "Education, languages, visual density"
+    ],
+    "faqs": [
+      {
+        "q": "Is the analysis free?",
+        "a": "Yes: overall score, subscores, 2 strengths and 2 explained issues. The detailed diagnosis, priorities and PDF are in the one-time paid report."
+      },
+      {
+        "q": "Is my CV ATS-compatible?",
+        "a": "We highlight traits that generally help or hurt ATS parsing. We do not reproduce a specific employer’s ATS score."
+      },
+      {
+        "q": "Is my data protected?",
+        "a": "Files are stored privately, with no public URL, and can be deleted. Default retention is 30 days with automatic purge. See the Privacy page (Law 09-08 / CNDP)."
+      },
+      {
+        "q": "Is payment a subscription?",
+        "a": "No. Payment is one-time."
+      }
+    ]
+  },
+  "pricing": {
+    "analysis": "CV analysis",
+    "optimized": "Optimized CV",
+    "start": "Get started",
+    "analysisIncludes": [
+      "Full ATS analysis",
+      "Detailed experience review",
+      "Detected and missing keywords",
+      "Priority fixes",
+      "Personalised recommendations",
+      "Professional summary review",
+      "PDF report"
+    ],
+    "optimizedIncludes": [
+      "The full analysis report",
+      "AI-rewritten CV",
+      "ATS-friendly version",
+      "Improved professional summary",
+      "Rewritten experience bullets",
+      "Keyword optimisation",
+      "CV download"
+    ]
+  },
+  "analyser": {
+    "title": "Analyze my CV",
+    "sub": "Free score in a few seconds. The full report stays behind a one-time payment — only if the preview is useful.",
+    "privacy": "Private file, not indexed, deletable at any time."
+  },
+  "payment": {
+    "checking": "Checking payment…",
+    "missing": "Order not found.",
+    "pending": "Payment pending. No report was unlocked.",
+    "failed": "Payment could not be confirmed. No report was unlocked.",
+    "forbidden": "You are not allowed to confirm this order.",
+    "success": "Payment confirmed. Your report is available.",
+    "openReport": "Open the report",
+    "retry": "Try again"
+  },
+  "deleteCv": {
+    "button": "Delete my CV",
+    "confirm": "Permanently delete this CV, extracted text and associated analysis?",
+    "yes": "Yes, delete",
+    "cancel": "Cancel",
+    "done": "CV deleted. Files and extracted text are no longer stored.",
+    "error": "Deletion failed."
+  },
+  "errors": {
+    "generic": "Something went wrong.",
+    "unauthorized": "Unauthorized.",
+    "invalidFile": "Accepted formats: valid PDF or DOCX."
+  }
+}

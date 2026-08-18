@@ -1,0 +1,551 @@
+{
+  "pages": {
+    "/": {
+      "status": 200,
+      "ms": 244,
+      "bytes": 80534,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/analyser": {
+      "status": 200,
+      "ms": 148,
+      "bytes": 39984,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/tarifs": {
+      "status": 200,
+      "ms": 207,
+      "bytes": 40730,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/faq": {
+      "status": 200,
+      "ms": 156,
+      "bytes": 39187,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/blog": {
+      "status": 200,
+      "ms": 159,
+      "bytes": 42814,
+      "title": "Blog — CV, ATS et carrière au Maroc",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/blog/cv-compatible-ats-maroc": {
+      "status": 200,
+      "ms": 122,
+      "bytes": 39022,
+      "title": "Comment savoir si mon CV est compatible ATS ?",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/confidentialite": {
+      "status": 200,
+      "ms": 139,
+      "bytes": 39229,
+      "title": "Confidentialité",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/conditions": {
+      "status": 200,
+      "ms": 125,
+      "bytes": 37315,
+      "title": "Conditions d’utilisation",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/a-propos": {
+      "status": 200,
+      "ms": 136,
+      "bytes": 35797,
+      "title": "À propos",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/comment-ca-marche": {
+      "status": 200,
+      "ms": 137,
+      "bytes": 38176,
+      "title": "Comment ça marche",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/connexion": {
+      "status": 200,
+      "ms": 144,
+      "bytes": 36262,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/inscription": {
+      "status": 200,
+      "ms": 143,
+      "bytes": 36317,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/dashboard": {
+      "status": 200,
+      "ms": 334,
+      "bytes": 36262,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/admin": {
+      "status": 200,
+      "ms": 322,
+      "bytes": 36262,
+      "title": "Mizane — Analyse CV et score ATS au Maroc · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/en": {
+      "status": 200,
+      "ms": 219,
+      "bytes": 78169,
+      "title": "Mizane — CV analysis and ATS score · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/ar": {
+      "status": 200,
+      "ms": 211,
+      "bytes": 75858,
+      "title": "ميزان — تحليل السيرة ودرجة ATS · Mizane",
+      "hasOg": true,
+      "hasCanonical": true,
+      "hasJsonLd": true,
+      "hasViewport": true
+    },
+    "/robots.txt": {
+      "status": 200,
+      "ms": 55,
+      "bytes": 183,
+      "title": null,
+      "hasOg": false,
+      "hasCanonical": false,
+      "hasJsonLd": false,
+      "hasViewport": false
+    },
+    "/sitemap.xml": {
+      "status": 200,
+      "ms": 74,
+      "bytes": 5204,
+      "title": null,
+      "hasOg": false,
+      "hasCanonical": false,
+      "hasJsonLd": false,
+      "hasViewport": false
+    },
+    "/this-page-does-not-exist": {
+      "status": 404,
+      "ms": 93,
+      "bytes": 12329,
+      "title": "Mizane — Analyse CV et score ATS au Maroc",
+      "hasOg": false,
+      "hasCanonical": false,
+      "hasJsonLd": false,
+      "hasViewport": true
+    }
+  },
+  "analyses": {
+    "bad": {
+      "file": "cv-sample.pdf",
+      "status": 200,
+      "ms": 512,
+      "cookie": "mizane_guest=05f599ba582961cce5a03b882e11616aefda59821a6f9861; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000",
+      "json": {
+        "id": "cmsxezh9v002fzc6si354uimw",
+        "preview": {
+          "overall_score": 42,
+          "verdict": "Des problèmes structurels et de contenu limitent fortement l’impact du CV.",
+          "ats_score": 57,
+          "structure_score": 62,
+          "keyword_score": 11,
+          "experience_score": 0,
+          "readability_score": 60,
+          "professionalism_score": 62,
+          "visual_score": 76,
+          "strengths": [
+            {
+              "title": "Structure globalement lisible",
+              "problem": "Des sections standards ont été identifiées."
+            }
+          ],
+          "issues": [
+            {
+              "title": "Informations de contact incomplètes",
+              "problem": "Numéro de téléphone introuvable.",
+              "why": "Un recruteur ou un ATS qui ne peut pas vous joindre écarte le profil, même compétent."
+            },
+            {
+              "title": "Expériences trop descriptives, peu de résultats",
+              "problem": "Plusieurs puces décrivent des missions sans impact mesurable.",
+              "why": "Les recruteurs cherchent la preuve de valeur, pas la liste des tâches."
+            }
+          ],
+          "locked_items": [
+            "Expériences trop descriptives, peu de résultats",
+            "Contenu trop mince",
+            "Informations de contact incomplètes",
+            "Mots-clés importants absents pour le poste visé",
+            "Formulations génériques peu convaincantes",
+            "Réécriture du résumé professionnel"
+          ],
+          "locked_recommendations": 6,
+          "is_scanned": false,
+          "extraction_quality": "medium",
+          "ats_disclaimer": "Votre CV présente plusieurs caractéristiques généralement favorables ou défavorables aux systèmes ATS. Ceci n’est pas le score d’un ATS d’entreprise spécifique.",
+          "word_count": 62
+        },
+        "warnings": []
+      }
+    },
+    "goodFr": {
+      "file": "cv-good-fr.pdf",
+      "status": 200,
+      "ms": 106,
+      "cookie": "mizane_guest=2f1c80234ce038e4ef7a80efc9a92ba8da428007bca0cc2f; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000",
+      "json": {
+        "id": "cmsxezhd8002tzc6syk31roi6",
+        "preview": {
+          "overall_score": 70,
+          "verdict": "Bon potentiel — plusieurs améliorations peuvent renforcer votre CV.",
+          "ats_score": 76,
+          "structure_score": 62,
+          "keyword_score": 75,
+          "experience_score": 50,
+          "readability_score": 90,
+          "professionalism_score": 78,
+          "visual_score": 76,
+          "strengths": [
+            {
+              "title": "Structure globalement lisible",
+              "problem": "Des sections standards ont été identifiées."
+            },
+            {
+              "title": "Volume de contenu suffisant pour une lecture ATS",
+              "problem": "Le document contient assez de texte pour une analyse."
+            }
+          ],
+          "issues": [
+            {
+              "title": "Informations de contact incomplètes",
+              "problem": "Numéro de téléphone introuvable.",
+              "why": "Un recruteur ou un ATS qui ne peut pas vous joindre écarte le profil, même compétent."
+            }
+          ],
+          "locked_items": [
+            "Informations de contact incomplètes",
+            "Réécriture du profil professionnel",
+            "Reformulation ATS des expériences",
+            "Alignement mots-clés du poste",
+            "Réécriture du résumé professionnel",
+            "Reformulation des expériences"
+          ],
+          "locked_recommendations": 6,
+          "is_scanned": false,
+          "extraction_quality": "high",
+          "ats_disclaimer": "Votre CV présente plusieurs caractéristiques généralement favorables ou défavorables aux systèmes ATS. Ceci n’est pas le score d’un ATS d’entreprise spécifique.",
+          "word_count": 135
+        },
+        "warnings": []
+      }
+    },
+    "goodEn": {
+      "file": "cv-good-en.pdf",
+      "status": 200,
+      "ms": 135,
+      "cookie": "mizane_guest=1b2c6a126e7e16d6fde17aeb3fa265b2d8194db523fde333; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000",
+      "json": {
+        "id": "cmsxezhgy0034zc6slhtktg6m",
+        "preview": {
+          "overall_score": 71,
+          "verdict": "Bon potentiel — plusieurs améliorations peuvent renforcer votre CV.",
+          "ats_score": 58,
+          "structure_score": 48,
+          "keyword_score": 75,
+          "experience_score": 100,
+          "readability_score": 60,
+          "professionalism_score": 78,
+          "visual_score": 70,
+          "strengths": [
+            {
+              "title": "Structure globalement lisible",
+              "problem": "Des sections standards ont été identifiées."
+            }
+          ],
+          "issues": [
+            {
+              "title": "Informations de contact incomplètes",
+              "problem": "Numéro de téléphone introuvable.",
+              "why": "Un recruteur ou un ATS qui ne peut pas vous joindre écarte le profil, même compétent."
+            },
+            {
+              "title": "Contenu trop mince",
+              "problem": "Le CV contient trop peu de contenu exploitable.",
+              "why": "Un ATS ne peut pas scorer un document qu’il ne lit pas."
+            }
+          ],
+          "locked_items": [
+            "Contenu trop mince",
+            "Informations de contact incomplètes",
+            "Réécriture du profil professionnel",
+            "Reformulation ATS des expériences",
+            "Alignement mots-clés du poste",
+            "Réécriture du résumé professionnel"
+          ],
+          "locked_recommendations": 6,
+          "is_scanned": false,
+          "extraction_quality": "medium",
+          "ats_disclaimer": "Votre CV présente plusieurs caractéristiques généralement favorables ou défavorables aux systèmes ATS. Ceci n’est pas le score d’un ATS d’entreprise spécifique.",
+          "word_count": 72
+        },
+        "warnings": []
+      }
+    },
+    "badFr": {
+      "file": "cv-bad-fr.pdf",
+      "status": 200,
+      "ms": 140,
+      "cookie": "mizane_guest=c8984dc3aee3d31b9a96d6790f411badf0672af6677b38de; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000",
+      "json": {
+        "id": "cmsxezhkr003fzc6sa00bxs5x",
+        "preview": {
+          "overall_score": 33,
+          "verdict": "Des problèmes structurels et de contenu limitent fortement l’impact du CV.",
+          "ats_score": 31,
+          "structure_score": 20,
+          "keyword_score": 0,
+          "experience_score": 38,
+          "readability_score": 60,
+          "professionalism_score": 32,
+          "visual_score": 70,
+          "strengths": [],
+          "issues": [
+            {
+              "title": "Informations de contact incomplètes",
+              "problem": "Adresse e-mail introuvable. Numéro de téléphone introuvable. Profil LinkedIn absent. Localisation non identifiée.",
+              "why": "Un recruteur ou un ATS qui ne peut pas vous joindre écarte le profil, même compétent."
+            },
+            {
+              "title": "Profil professionnel absent ou trop discret",
+              "problem": "Aucun résumé / profil n’a été clairement détecté.",
+              "why": "Les recruteurs scannent le haut du CV en quelques secondes."
+            }
+          ],
+          "locked_items": [
+            "Expériences trop descriptives, peu de résultats",
+            "Contenu trop mince",
+            "Informations de contact incomplètes",
+            "Compétences peu exploitables par un ATS",
+            "Mots-clés importants absents pour le poste visé",
+            "Réécriture du résumé professionnel"
+          ],
+          "locked_recommendations": 6,
+          "is_scanned": false,
+          "extraction_quality": "medium",
+          "ats_disclaimer": "Votre CV présente plusieurs caractéristiques généralement favorables ou défavorables aux systèmes ATS. Ceci n’est pas le score d’un ATS d’entreprise spécifique.",
+          "word_count": 26
+        },
+        "warnings": []
+      }
+    },
+    "scanned": {
+      "file": "cv-scanned.pdf",
+      "status": 200,
+      "ms": 140,
+      "cookie": "mizane_guest=37357476f82c80e1a669de7d39e6ef155c73624b93354a73; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000",
+      "json": {
+        "id": "cmsxezhoq003uzc6scithy0jc",
+        "preview": {
+          "overall_score": 27,
+          "verdict": "Des problèmes structurels et de contenu limitent fortement l’impact du CV.",
+          "ats_score": 2,
+          "structure_score": 0,
+          "keyword_score": 0,
+          "experience_score": 38,
+          "readability_score": 60,
+          "professionalism_score": 56,
+          "visual_score": 70,
+          "strengths": [],
+          "issues": [
+            {
+              "title": "Informations de contact incomplètes",
+              "problem": "Adresse e-mail introuvable. Numéro de téléphone introuvable. Profil LinkedIn absent. Localisation non identifiée.",
+              "why": "Un recruteur ou un ATS qui ne peut pas vous joindre écarte le profil, même compétent."
+            },
+            {
+              "title": "Profil professionnel absent ou trop discret",
+              "problem": "Aucun résumé / profil n’a été clairement détecté.",
+              "why": "Les recruteurs scannent le haut du CV en quelques secondes."
+            }
+          ],
+          "locked_items": [
+            "Expériences trop descriptives, peu de résultats",
+            "Contenu trop mince",
+            "Informations de contact incomplètes",
+            "Compétences peu exploitables par un ATS",
+            "Mots-clés importants absents pour le poste visé",
+            "Réécriture du résumé professionnel"
+          ],
+          "locked_recommendations": 6,
+          "is_scanned": false,
+          "extraction_quality": "medium",
+          "ats_disclaimer": "Votre CV présente plusieurs caractéristiques généralement favorables ou défavorables aux systèmes ATS. Ceci n’est pas le score d’un ATS d’entreprise spécifique.",
+          "word_count": 3
+        },
+        "warnings": []
+      }
+    },
+    "exe": {
+      "file": "not-a-cv.exe.pdf",
+      "status": 400,
+      "ms": 21,
+      "cookie": null,
+      "json": {
+        "error": "Fichier exécutable refusé.",
+        "code": "EXECUTABLE"
+      }
+    },
+    "oversized": {
+      "file": "oversized.pdf",
+      "status": 400,
+      "ms": 51,
+      "cookie": null,
+      "json": {
+        "error": "Fichier trop volumineux (max 5 Mo).",
+        "code": "TOO_LARGE"
+      }
+    },
+    "docx": {
+      "file": "cv-sara.docx.zip",
+      "status": 429,
+      "ms": 32,
+      "cookie": null,
+      "json": {
+        "error": "Trop de tentatives. Réessayez dans quelques minutes."
+      }
+    }
+  },
+  "security": {
+    "unauthGet": {
+      "status": 404,
+      "body": {
+        "error": "Analyse introuvable."
+      }
+    },
+    "ownerGet": {
+      "status": 200,
+      "unlocked": false
+    },
+    "jsonUpload": {
+      "status": 429,
+      "json": {
+        "error": "Trop de tentatives. Réessayez dans quelques minutes."
+      }
+    },
+    "rateLimitNote": "Upload limiter is 8/10min in-memory",
+    "adminUnauth": {
+      "status": 403,
+      "body": {
+        "error": "Interdit"
+      }
+    }
+  },
+  "payments": {
+    "duplicateInit": {
+      "first": {
+        "orderId": "MZ-MSXEZI26-4C65DE",
+        "checkoutUrl": "http://localhost:3000/paiement/retour?orderId=MZ-MSXEZI26-4C65DE&mock=1",
+        "amountMad": 49
+      },
+      "second": {
+        "orderId": "MZ-MSXEZI26-4C65DE",
+        "checkoutUrl": "http://localhost:3000/paiement/retour?orderId=MZ-MSXEZI26-4C65DE&mock=1",
+        "amountMad": 49,
+        "reused": true
+      },
+      "differentOrders": false
+    },
+    "verifyWithoutAuth": {
+      "status": 403,
+      "body": {
+        "error": "Non autorisé."
+      }
+    },
+    "failedWebhook": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "reason": "INVALID_WEBHOOK"
+      }
+    },
+    "spoofWebhook": {
+      "status": 400,
+      "body": {
+        "ok": false,
+        "reason": "INVALID_WEBHOOK"
+      }
+    },
+    "unlockedAfterSpoof": {
+      "unlocked": false
+    },
+    "optimizeWithoutOptimizedProduct": {
+      "status": 402,
+      "body": {
+        "error": "Le CV optimisé nécessite un paiement distinct.",
+        "code": "OPTIMIZER_LOCKED"
+      }
+    }
+  },
+  "seo": {
+    "homeCtaCount": 5,
+    "robots": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /dashboard\nDisallow: /admin\nDisallow: /rapport/\nDisallow: /resultats/\nDisallow: /storage/\n\nSitemap: http://localhost:3000/sitemap.xml\n",
+    "sitemapHead": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>http://localhost:3000/</loc>\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>http://localhost:3000/analyser</loc>\n<changefreq>weekly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>http://localhost:3000/tarifs</loc>\n<changefreq>weekly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>http://localhost:3000/faq</loc>\n<changefreq>weekly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>http://localhost:3000/blog</loc>\n<changefreq>weekly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>http://localhost:3000/confidentialite</loc>\n<changefreq>weekly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>http://localhost:3000/condition"
+  },
+  "timings": {}
+}
