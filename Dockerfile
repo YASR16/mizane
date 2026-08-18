@@ -41,6 +41,8 @@ COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder --chown=nextjs:nodejs /app/scripts/start-koyeb.sh ./start-koyeb.sh
 
+RUN npm install -g prisma@6.19.3
+
 USER nextjs
 EXPOSE 8000
 CMD ["sh", "./start-koyeb.sh"]
