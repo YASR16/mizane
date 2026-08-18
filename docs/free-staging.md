@@ -2,78 +2,91 @@
 
 Cloudflare Pages / Workers cannot host Mizane: Node PDF/upload APIs, Prisma, Auth.js and cron need a Node server.
 
-Fly.io is **not free** for new accounts (pay-as-you-go). Do not create a Fly app unless you accept billing.
+## Hosting reality (2026-08-18)
 
-Render asked for a **credit card** ($1 Stripe verification). Do **not** add a card. Host is **Koyeb Free** (Frankfurt): same class of product (Docker, HTTPS, 512 MB), usually **no card** for a GitHub signup.
+The app is **staging-ready**. There is **no public HTTPS URL yet**.
 
-## Target stack (all $0)
+Tried, in order, without adding a card:
 
-| Layer | Provider | Public hostname | Limits |
-| --- | --- | --- | --- |
-| App | Koyeb Free (Frankfurt) | `https://<app>-<org>.koyeb.app` | 512 MB RAM, scale-to-zero after 1 hour idle |
-| Postgres | Neon Free (already created) | connection string | 0.5 GB storage, scale-to-zero after 5 min |
-| CV files | `STORAGE_DRIVER=postgres` (private BYTEA) | no public URL | counts toward Neon 0.5 GB |
-| Payments | `PAYMENT_PROVIDER=disabled` | — | UI: « Paiement bientôt disponible » |
-| Cron | [cron-job.org](https://cron-job.org) free | hits `/api/cron/purge` | daily |
+| Host | Result |
+| --- | --- |
+| Render Free | Blocked: Stripe “Add Card” / $1 verification |
+| Fly.io | Not free for new accounts (pay-as-you-go) |
+| Koyeb Free (Frankfurt) | GitHub login succeeded (org `mizane`). Control panel is the Mistral splash only (Settings / Log out). New users must take a **paid** plan. Do not add a card. |
+| Hugging Face Docker Spaces | Compute/Docker creation requires a paid plan |
+| Northflank sandbox | Credit card required to activate |
+| Railway | Login required; not completed (owner GitHub / likely billing) |
+| Vercel Hobby | Not used: Hobby is non-commercial, ~10s function timeout, ~4.5 MB body vs 5 MB CV limit |
 
-One-click (sign in with GitHub **YASR16**, instance **free**, region **fra**, port **8000**):
+Do **not** add a credit card to bypass any of the above.
 
-https://app.koyeb.com/deploy?type=git&builder=dockerfile&repository=github.com/YASR16/mizane&branch=master&name=mizane&instance_type=free&regions=fra&ports=8000;http;/
+Reuse Neon Free Postgres (`floral-sky-97693789`). Paste `DATABASE_URL` only in the future host’s env (never in git or chat).
 
-If Koyeb asks for a card, cancel. Do not fill Stripe. Message the session so we can pick another $0 host.
+## Target stack when a $0 Node host exists
 
-## Owner steps (cannot be automated here)
+| Layer | Provider | Notes |
+| --- | --- | --- |
+| App | Docker Node 22, `PORT=8000`, `scripts/start-koyeb.sh` (migrate then `node server.js`) | Same image for Koyeb / Render / Fly later |
+| Postgres | Neon Free (EU) | 0.5 GB; scale-to-zero |
+| CV files | `STORAGE_DRIVER=postgres` (private BYTEA) | Switch to R2 in production |
+| Payments | `PAYMENT_PROVIDER=disabled` | UI: « Paiement bientôt disponible » |
+| Cron | cron-job.org free → `POST /api/cron/purge` | After a public URL exists |
 
-Koyeb and Neon need **your** GitHub login in a browser. This machine cannot create those accounts for you.
+## Staging env (names only — values live in gitignored `.env.staging.local`)
 
-### 1. Neon Postgres (already created — reuse it)
+Required on the host:
 
-Project `floral-sky-97693789`. In Neon → **Connect**, copy `DATABASE_URL`. Paste it only in Koyeb env, never in chat, never in git.
+- `MIZANE_ENV=staging`
+- `NODE_ENV=production`
+- `PAYMENT_PROVIDER=disabled`
+- `STORAGE_DRIVER=postgres`
+- `AUTH_TRUST_HOST=true`
+- `PORT=8000`
+- `CV_RETENTION_DAYS=30`
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD` (12+ chars, not `change-me-now`)
+- `AUTH_SECRET` (32+)
+- `CRON_SECRET`
+- `DATABASE_URL` (Neon Connect)
+- After first URL: `NEXT_PUBLIC_APP_URL` and `AUTH_URL` = same `https://…` then **rebuild**
 
-### 2. Koyeb web service (free, no card)
+## Local verification (2026-08-18)
 
-1. Open the one-click URL above.
-2. Sign in with **GitHub** (YASR16). Allow the Koyeb GitHub App on repo `mizane`.
-3. Confirm: **Free** instance, region **Frankfurt (`fra`)**, Dockerfile builder, port **8000**.
-4. Before deploy, add environment variables (dashboard → Environment). Use the values already generated for staging (see the end of the chat / `.env.staging.local` on this PC). Required:
+Ran on this machine, not on a public URL:
 
-   - `MIZANE_ENV=staging`
-   - `NODE_ENV=production`
-   - `PAYMENT_PROVIDER=disabled`
-   - `STORAGE_DRIVER=postgres`
-   - `AUTH_TRUST_HOST=true`
-   - `DATABASE_URL` = Neon Connect URI
-   - `AUTH_SECRET` = the generated 64-hex value
-   - `CRON_SECRET` = the generated value
-   - `ADMIN_EMAIL=admin@mizane.ma`
-   - `ADMIN_PASSWORD` = the generated password
-   - `CV_RETENTION_DAYS=30`
-   - `NEXT_PUBLIC_BRAND_NAME=Mizane`
-   - `PORT=8000`
+- `npm test` — 42/42
+- `npx tsc --noEmit` — pass
+- `SKIP_ENV_ASSERT=1 npm run build` — pass (116 routes)
+- `npx tsx scripts/validate-env-refusals.ts` — pass
+- `npx tsx scripts/security-live.ts` against `http://localhost:3000` — pass
+- `npx tsx scripts/validate-privacy.ts` — pass
+- Postgres dump `backups/mizane-beta.dump` (gitignored) restored to throwaway `mizane_restore`: 19 public tables
 
-5. Deploy. When Koyeb shows `https://….koyeb.app`, set:
+Homepage locally ~300 ms. `/connexion` sends `X-Robots-Tag: noindex`. robots/sitemap/canonical/hreflang/JSON-LD present (URLs are localhost until `NEXT_PUBLIC_APP_URL` is public HTTPS).
 
-   - `NEXT_PUBLIC_APP_URL` = that URL (no trailing slash)
-   - `AUTH_URL` = the same URL
+## Owner action that unblocks the public beta
 
-   Then **redeploy** so `NEXT_PUBLIC_*` is baked into the Docker image.
+1. Obtain a **genuinely free** always-on Node/Docker host **without a card**, **or** later allow a paid EU host (out of scope for 0 DH).
+2. Sign in to that host with GitHub **YASR16**.
+3. Deploy `https://github.com/YASR16/mizane` (`master`, Dockerfile).
+4. Paste Neon `DATABASE_URL` and the staging secrets from `.env.staging.local`.
+5. Set `NEXT_PUBLIC_APP_URL` / `AUTH_URL` to the real HTTPS URL and redeploy.
+6. Send the URL so public security/SEO checks can run.
 
-### 3. Daily purge (free)
+Optional after the URL exists:
 
-1. Open https://cron-job.org/en/signup/
-2. Job: daily `POST https://<app>-<org>.koyeb.app/api/cron/purge`
-3. Header: `Authorization: Bearer <CRON_SECRET>`
+- cron-job.org → daily `POST https://<host>/api/cron/purge` with `Authorization: Bearer <CRON_SECRET>`
+- Google Search Console / Bing URL-prefix verification → `GOOGLE_SITE_VERIFICATION` / `BING_SITE_VERIFICATION`
+- Sentry free project → `SENTRY_DSN` (server only)
+- IndexNow → `INDEXNOW_KEY` (public key file already served at `/indexnow.txt` when set)
 
-## Backup / restore (tested locally)
+## Rollback
 
-- **Location:** `backups/mizane-local.dump` (gitignored). Size on 2026-08-18: 45 412 bytes.
-- **How:** `docker compose exec postgres pg_dump -U mizane -d mizane -F c -f /tmp/mizane.dump`
-- **Restore (throwaway DB only):** `createdb mizane_restore` then `pg_restore -d mizane_restore --no-owner --no-acl`.
-- **Result:** PASS. Restored 19 relations including `PrivateObject`. Counts: 3 users, 6 CV documents, 6 payments.
-- **Neon Free:** 6-hour instant restore window; no extra paid backup product.
-- **Frequency on free stack:** manual dump after meaningful data, plus Neon history. Daily cron-job.org for CV purge is separate.
+GitHub `master`. Previous app commit: `b542ed1`. Host switch commit: `a9c8d0f`. Redeploy the last known-good image; restore Postgres only onto a **throwaway** database (`CONFIRM_RESTORE=yes`).
 
-- Cloudflare R2: https://dash.cloudflare.com → R2 → create **private** bucket → `STORAGE_DRIVER=s3`
-- Sentry: https://sentry.io/signup/ → project DSN → `SENTRY_DSN` (server only)
-- Google Search Console: https://search.google.com/search-console → URL prefix = Koyeb URL → paste `GOOGLE_SITE_VERIFICATION`
-- Bing Webmaster: https://www.bing.com/webmasters → same URL → `BING_SITE_VERIFICATION` / IndexNow key
+## Known limitations (staging)
+
+- Payments disabled on purpose. No mock unlock in staging/production.
+- Postgres BYTEA for CVs counts toward Neon 0.5 GB.
+- Free PaaS usually scale-to-zero (cold start).
+- Production still needs live Payzone, private R2, EU VM (Fly `cdg` or equivalent), and a real domain.
