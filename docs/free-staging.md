@@ -20,7 +20,7 @@ The app is **staging-ready**. Back4App Free container **mizane** exists at `http
 
 Do **not** add a credit card to bypass any of the above.
 
-Selected next deploy: **Back4App Containers** using the existing Dockerfile (`PORT=8000`). Set `NODE_OPTIONS=--max-old-space-size=192` on that host so the process fits in 256 MB. Docker image stays unchanged for later 512 MB+ production hosts.
+Selected next deploy: **Back4App Containers** using the existing Dockerfile (`PORT=8000`). Deps stage uses `npm ci --ignore-scripts` so Prisma generate runs after the full source copy. Set `NODE_OPTIONS=--max-old-space-size=192` on that host so the process fits in 256 MB. Docker image stays multi-stage for later 512 MB+ production hosts.
 
 Reuse Neon Free Postgres (`floral-sky-97693789`). Paste `DATABASE_URL` only in the future host’s env (never in git or chat).
 
