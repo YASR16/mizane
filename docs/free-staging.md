@@ -1,24 +1,26 @@
 # Free public beta (0 DH)
 
-Cloudflare Pages / Workers cannot host Mizane: Node PDF/upload APIs, Prisma, Auth.js and cron need a Node server.
+Docker on a Node host remains the supported runtime. Cloudflare OpenNext was re-checked (Aug 2026): Workers **Free** is 10 ms CPU, 128 MB, 3 MB gzip — unusable for PDF parse, Prisma, and CV analysis. Do not add an OpenNext branch. Keep the Dockerfile for later Fly/Koyeb/Render paid production.
 
 ## Hosting reality (2026-08-18)
 
 The app is **staging-ready**. There is **no public HTTPS URL yet**.
 
-Tried, in order, without adding a card:
-
 | Host | Result |
 | --- | --- |
-| Render Free | Blocked: Stripe “Add Card” / $1 verification |
-| Fly.io | Not free for new accounts (pay-as-you-go) |
-| Koyeb Free (Frankfurt) | GitHub login succeeded (org `mizane`). Control panel is the Mistral splash only (Settings / Log out). New users must take a **paid** plan. Do not add a card. |
-| Hugging Face Docker Spaces | Compute/Docker creation requires a paid plan |
-| Northflank sandbox | Credit card required to activate |
-| Railway | Login required; not completed (owner GitHub / likely billing) |
-| Vercel Hobby | Not used: Hobby is non-commercial, ~10s function timeout, ~4.5 MB body vs 5 MB CV limit |
+| Cloudflare Workers + OpenNext | Rejected: 10 ms CPU / 128 MB / 3 MB worker. Analysis and PDF cannot run. |
+| Cloudflare Pages | Same Workers runtime for Next.js. Rejected. |
+| Cloudflare Containers | Requires Workers Paid $5/month. Rejected. |
+| Zeabur Free | Shared cluster deprecated; first project needs phone, credits, or card. Rejected. |
+| Oracle Always Free | Card required for identity. Rejected. |
+| Seenode | 7-day trial only. Rejected (no paid trials). |
+| SnapDeploy | 512 MB Docker, no card, HTTPS. Blocked here: Cloudflare Turnstile + email signup. |
+| Back4App Containers | **Winner for 0 DH Docker**: official $0, no card, GitHub + Dockerfile, HTTPS. 256 MB RAM (tight). USA region. Needs owner GitHub signup. |
+| Render / Koyeb / Fly / HF Docker / Northflank | Card or paid plan for new accounts. |
 
 Do **not** add a credit card to bypass any of the above.
+
+Selected next deploy: **Back4App Containers** using the existing Dockerfile (`PORT=8000`). Set `NODE_OPTIONS=--max-old-space-size=192` on that host so the process fits in 256 MB. Docker image stays unchanged for later 512 MB+ production hosts.
 
 Reuse Neon Free Postgres (`floral-sky-97693789`). Paste `DATABASE_URL` only in the future host’s env (never in git or chat).
 
