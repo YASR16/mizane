@@ -11,6 +11,7 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat openssl
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN mkdir -p public
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV SKIP_ENV_ASSERT=1
 ARG NEXT_PUBLIC_APP_URL=https://mizane.ma
