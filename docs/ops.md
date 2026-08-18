@@ -1,8 +1,6 @@
 # Exploitation
 
-Bêta 0 DH : voir `docs/free-staging.md`. En 2026-08-18 aucun hôte Node toujours allumé sans carte n’a accepté le déploiement (Render carte, Koyeb nouveaux comptes payants, Fly pay-as-you-go).
-
-Production visée : **Fly.io `cdg`**, Postgres managé dans la même région, **Cloudflare R2 privé**, Payzone, cron de purge. Pas Vercel Hobby (ToS non commercial, timeout, limite de body).
+Bêta 0 DH : voir `docs/free-staging.md`. Hôte choisi : **Back4App Containers** (Free, 256 MB, USA, `https://mizane-fft13q12.b4a.run`, URL temporaire 60 min). `DATABASE_URL` Neon n’est pas encore collé sur l’hôte. Ne pas upgrader. Production visée : **Fly.io `cdg`**, Postgres managé dans la même région, **Cloudflare R2 privé**, Payzone, cron de purge. Pas Vercel Hobby (ToS non commercial, timeout, limite de body).
 
 ## Variables
 

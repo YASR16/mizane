@@ -1,11 +1,11 @@
 export const hostingRegion =
-  "Union européenne (bêta gratuite : Koyeb Francfort + Neon UE ; production prévue : Fly.io Paris)";
+  "Bêta 0 DH : Back4App Containers (USA) + Neon UE ; production prévue : Fly.io Paris";
 
 export const processors = [
   {
-    name: "Koyeb (Francfort, instance Free) ou Fly.io (Paris) selon l’environnement",
+    name: "Back4App Containers (bêta 0 DH) ou Fly.io (Paris) en production",
     role: "Hébergement de l’application Next.js",
-    region: "UE",
+    region: "USA en bêta 0 DH ; UE visée en production",
   },
   {
     name: "PostgreSQL managé (Neon Free en bêta, ou Postgres du même hôte en production)",

@@ -4,7 +4,7 @@ Docker on a Node host remains the supported runtime. Cloudflare OpenNext was re-
 
 ## Hosting reality (2026-08-18)
 
-The app is **staging-ready**. There is **no public HTTPS URL yet**.
+The app is **staging-ready**. Back4App Free container **mizane** exists at `https://mizane-fft13q12.b4a.run` but is not a durable public beta yet: the first Docker build failed, the free URL is labeled **temporary (60 minutes)**, and `DATABASE_URL` is still empty on the host.
 
 | Host | Result |
 | --- | --- |
@@ -15,7 +15,7 @@ The app is **staging-ready**. There is **no public HTTPS URL yet**.
 | Oracle Always Free | Card required for identity. Rejected. |
 | Seenode | 7-day trial only. Rejected (no paid trials). |
 | SnapDeploy | 512 MB Docker, no card, HTTPS. Blocked here: Cloudflare Turnstile + email signup. |
-| Back4App Containers | **Winner for 0 DH Docker**: official $0, no card, GitHub + Dockerfile, HTTPS. 256 MB RAM (tight). USA region. Needs owner GitHub signup. |
+| Back4App Containers | **Chosen 0 DH Docker host**. App created (Free, 256 MB, USA, GitHub `YASR16/mizane` `master`, port 8000). First build failed: Node 22 alpine `npm ci` missing `@emnapi/core@1.11.3` / `@emnapi/runtime@1.11.3` from a Windows lockfile. Do not click Upgrade / Change Plan. |
 | Render / Koyeb / Fly / HF Docker / Northflank | Card or paid plan for new accounts. |
 
 Do **not** add a credit card to bypass any of the above.
@@ -68,12 +68,12 @@ Homepage locally ~300 ms. `/connexion` sends `X-Robots-Tag: noindex`. robots/sit
 
 ## Owner action that unblocks the public beta
 
-1. Obtain a **genuinely free** always-on Node/Docker host **without a card**, **or** later allow a paid EU host (out of scope for 0 DH).
-2. Sign in to that host with GitHub **YASR16**.
-3. Deploy `https://github.com/YASR16/mizane` (`master`, Dockerfile).
-4. Paste Neon `DATABASE_URL` and the staging secrets from `.env.staging.local`.
-5. Set `NEXT_PUBLIC_APP_URL` / `AUTH_URL` to the real HTTPS URL and redeploy.
-6. Send the URL so public security/SEO checks can run.
+GitHub is connected. Staging secrets (except the database) and port 8000 are saved on Back4App. Remaining:
+
+1. In Neon → Connect, copy the Postgres URI and paste it as `DATABASE_URL` in Back4App → Settings → Environment Variables. Never put it in git or chat.
+2. Do **not** click Upgrade / Change Plan / Permanent URL (that is paid).
+3. After `DATABASE_URL` is set, Action → Deploy the latest commit (or push to `master`).
+4. Treat `https://mizane-fft13q12.b4a.run` as a 60-minute free URL unless Back4App keeps it alive without paying.
 
 Optional after the URL exists:
 
