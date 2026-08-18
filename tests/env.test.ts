@@ -86,8 +86,8 @@ describe("runtime env guards", () => {
         PAYZONE_PASSWORD: "",
         PAYZONE_WEBHOOK_SECRET: "",
         STORAGE_DRIVER: "postgres",
-        NEXT_PUBLIC_APP_URL: "https://mizane.onrender.com",
-        AUTH_URL: "https://mizane.onrender.com",
+        NEXT_PUBLIC_APP_URL: "https://mizane-org.koyeb.app",
+        AUTH_URL: "https://mizane-org.koyeb.app",
       }),
     ).not.toThrow();
   });

@@ -1,9 +1,9 @@
 export const hostingRegion =
-  "Union européenne (bêta gratuite : Render Francfort + Neon UE ; production prévue : Fly.io Paris)";
+  "Union européenne (bêta gratuite : Koyeb Francfort + Neon UE ; production prévue : Fly.io Paris)";
 
 export const processors = [
   {
-    name: "Render (Francfort, instance Free) ou Fly.io (Paris) selon l’environnement",
+    name: "Koyeb (Francfort, instance Free) ou Fly.io (Paris) selon l’environnement",
     role: "Hébergement de l’application Next.js",
     region: "UE",
   },

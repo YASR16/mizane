@@ -57,7 +57,7 @@ assertRuntimeEnv({
   MIZANE_ENV: "staging",
   PAYMENT_PROVIDER: "disabled",
   STORAGE_DRIVER: "postgres",
-  NEXT_PUBLIC_APP_URL: "https://mizane.onrender.com",
-  AUTH_URL: "https://mizane.onrender.com",
+  NEXT_PUBLIC_APP_URL: "https://mizane-org.koyeb.app",
+  AUTH_URL: "https://mizane-org.koyeb.app",
 });
 console.log("PASS staging disabled payments + postgres storage");
