@@ -14,7 +14,9 @@ export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
   const ip = clientIp(req);
-  const limited = rateLimit(`upload:${ip}`, 8, 10 * 60 * 1000);
+  // Staging allows a higher burst so full CV QA fits free-tier cold starts; production stays stricter.
+  const uploadBurst = process.env.MIZANE_ENV === "staging" ? 20 : 8;
+  const limited = rateLimit(`upload:${ip}`, uploadBurst, 10 * 60 * 1000);
   if (!limited.ok) {
     return NextResponse.json({ error: "Trop de tentatives. Réessayez dans quelques minutes." }, { status: 429 });
   }

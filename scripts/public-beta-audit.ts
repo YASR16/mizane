@@ -5,7 +5,7 @@
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 
-const BASE = (process.env.AUDIT_BASE ?? "https://mizane-fft13q12.b4a.run").replace(/\/$/, "");
+const BASE = (process.env.AUDIT_BASE ?? "https://mizane-kntol4ix.b4a.run").replace(/\/$/, "");
 const stamp = Date.now();
 const email = `beta.${stamp}@mizane.test`;
 const password = `BetaTest!${stamp.toString().slice(-6)}`;
@@ -129,10 +129,16 @@ async function main() {
   const fixtures = [
     { file: "cv-good-fr.pdf", label: "FR CV" },
     { file: "cv-good-en.pdf", label: "EN CV" },
+    { file: "cv-ar-short.pdf", label: "AR CV" },
     { file: "cv-sample.pdf", label: "short CV" },
   ];
   let lastAnalysisId = "";
+  let rateLimited = false;
   for (const f of fixtures) {
+    if (rateLimited) {
+      record(`Upload+analysis ${f.label}`, false, "skipped after 429");
+      continue;
+    }
     const path = join(process.cwd(), "fixtures", f.file);
     if (!existsSync(path)) {
       record(f.label, false, "fixture missing");
@@ -146,6 +152,11 @@ async function main() {
     const up = await fetch(BASE + "/api/analyses", { method: "POST", body: form, headers: { Cookie: jar } });
     jar = mergeCookie(jar, cookieFrom(up));
     const body = (await up.json()) as { id?: string; error?: string };
+    if (up.status === 429) {
+      rateLimited = true;
+      record(`Upload+analysis ${f.label}`, false, `429 ${body.error}`);
+      continue;
+    }
     const ok = up.status === 200 && Boolean(body.id);
     record(`Upload+analysis ${f.label}`, ok, ok ? body.id : `${up.status} ${body.error}`);
     if (body.id) lastAnalysisId = body.id;
@@ -205,13 +216,13 @@ async function main() {
     record("Analysis IDOR blocked", idor.status === 404 || idor.status === 401, `HTTP ${idor.status}`);
   }
 
-  // Phase 8 — privacy delete (if endpoint exists)
+  // Phase 8 — privacy delete via /api/account/cv
   if (lastAnalysisId) {
-    const del = await req(`/api/analyses/${lastAnalysisId}`, {
+    const del = await req(`/api/account/cv?analysisId=${encodeURIComponent(lastAnalysisId)}`, {
       method: "DELETE",
       headers: { Cookie: jar },
     });
-    record("Delete analysis", del.status === 200 || del.status === 204 || del.status === 404, `HTTP ${del.status}`);
+    record("Delete analysis", del.status === 200, `HTTP ${del.status}`);
     const after = await req(`/api/analyses/${lastAnalysisId}`, { headers: { Cookie: jar } });
     record("Deleted inaccessible", after.status === 404, `HTTP ${after.status}`);
   }
