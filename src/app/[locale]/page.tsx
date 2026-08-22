@@ -103,7 +103,7 @@ export default async function HomePage() {
                 items={[
                   { label: "ATS", value: 64 },
                   { label: "Structure", value: 78 },
-                  { label: "Keywords", value: 61 },
+                  { label: "Mots-clés", value: 61 },
                 ]}
               />
             </div>

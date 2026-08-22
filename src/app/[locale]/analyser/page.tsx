@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({
     title: "Analyser un CV — aperçu gratuit, rapport 49 DH",
     description:
-      "Uploadez un PDF ou DOCX. Mizane extrait le texte, note l’ATS et la structure, et montre un aperçu réel avant paiement.",
+      "Déposez un PDF ou DOCX. Mizane extrait le texte, note l’ATS et la structure, et montre un aperçu réel avant paiement.",
     path: `${prefix}/analyser`,
     locale,
   });

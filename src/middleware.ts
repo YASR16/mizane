@@ -4,7 +4,7 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-const PRIVATE_PREFIXES = ["/dashboard", "/admin", "/rapport", "/resultats", "/optimiser", "/paiement", "/lancement", "/matching", "/connexion", "/inscription"];
+const PRIVATE_PREFIXES = ["/dashboard", "/admin", "/rapport", "/resultats", "/optimiser", "/paiement", "/lancement", "/matching", "/connexion", "/inscription", "/retour-beta"];
 
 function stripLocale(pathname: string) {
   return pathname.replace(/^\/(en|ar)(?=\/|$)/, "") || "/";

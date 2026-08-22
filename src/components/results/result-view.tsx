@@ -7,7 +7,7 @@ import { ScoreBars } from "@/components/results/score-bars";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { products } from "@/lib/pricing";
-import { formatMad, scoreLabel } from "@/lib/utils";
+import { formatMad, paywallHeadline, scoreLabel } from "@/lib/utils";
 import { Lock, ShieldAlert } from "lucide-react";
 import { DeleteCvButton } from "@/components/account/delete-cv-button";
 
@@ -56,6 +56,11 @@ export function ResultView({ id }: { id: string }) {
         return;
       }
       setData(json);
+      void fetch("/api/analytics", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "analysis_viewed", analysisId: id, path: `/resultats/${id}` }),
+      });
       void fetch("/api/analytics", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -138,7 +143,7 @@ export function ResultView({ id }: { id: string }) {
             items={[
               { label: "ATS", value: p.ats_score },
               { label: "Structure", value: p.structure_score },
-              { label: "Keywords", value: p.keyword_score },
+              { label: "Mots-clés", value: p.keyword_score },
               { label: "Expérience", value: p.experience_score },
               { label: "Lisibilité", value: p.readability_score },
               { label: "Professionnalisme", value: p.professionalism_score },
@@ -186,15 +191,31 @@ export function ResultView({ id }: { id: string }) {
       </Card>
 
       <Card className="mt-10 p-8 text-center">
-        <h2 className="font-display text-3xl">Votre CV peut encore être amélioré.</h2>
+        <h2 className="font-display text-3xl">{paywallHeadline(p.overall_score)}</h2>
         <p className="mx-auto mt-3 max-w-lg text-ink-soft">
-          Nous avons identifié plusieurs opportunités d’amélioration. Débloquez le diagnostic complet pour savoir exactement quoi modifier.
+          L’aperçu ci-dessus est basé sur votre fichier. Le rapport à{" "}
+          <strong className="text-ink">{formatMad(products.analysis.priceMad)}</strong> (paiement unique)
+          ajoute le plan priorisé, les réécritures avant/après, les mots-clés manquants et le PDF.
         </p>
-        <ul className="mx-auto mt-6 max-w-md space-y-2 text-left text-sm text-ink-soft">
-          {products.analysis.includes.map((i) => (
-            <li key={i}>✓ {i}</li>
-          ))}
-        </ul>
+        <div className="mx-auto mt-6 grid max-w-xl gap-4 text-left md:grid-cols-2">
+          <div className="rounded-xl border border-line bg-paper/60 p-4">
+            <p className="text-sm font-semibold">Rapport d’analyse — {formatMad(products.analysis.priceMad)}</p>
+            <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+              {products.analysis.includes.map((i) => (
+                <li key={i}>✓ {i}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-line bg-paper/60 p-4">
+            <p className="text-sm font-semibold">CV optimisé — {formatMad(products.optimized.priceMad)}</p>
+            <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+              {products.optimized.includes.map((i) => (
+                <li key={i}>✓ {i}</li>
+              ))}
+            </ul>
+            <p className="mt-3 text-xs text-ink-soft">Proposé après le rapport, si vous voulez une version réécrite.</p>
+          </div>
+        </div>
         {data.paymentsEnabled === false ? (
           <>
             <p className="mt-8 text-lg font-semibold">Paiement bientôt disponible</p>
@@ -206,10 +227,22 @@ export function ResultView({ id }: { id: string }) {
         ) : (
           <>
             {payError ? <p className="mt-4 text-sm text-clay">{payError}</p> : null}
-            <Button className="mt-8" size="lg" onClick={unlock} disabled={paying}>
+            <Button
+              className="mt-8"
+              size="lg"
+              onClick={() => {
+                void fetch("/api/analytics", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ name: "cta_clicked", analysisId: id, path: `/resultats/${id}`, meta: { cta: "unlock_report" } }),
+                });
+                void unlock();
+              }}
+              disabled={paying}
+            >
               {paying ? "Redirection vers le paiement…" : `Débloquer mon rapport — ${formatMad(products.analysis.priceMad)}`}
             </Button>
-            <p className="mt-3 text-xs text-ink-soft">Paiement unique • Aucun abonnement</p>
+            <p className="mt-3 text-xs text-ink-soft">Paiement unique • Aucun abonnement • Prix affiché en MAD</p>
           </>
         )}
       </Card>

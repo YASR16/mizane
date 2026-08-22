@@ -42,6 +42,34 @@ export function scoreLabel(score: number, locale: string = "fr") {
   return String(bands[bands.length - 1][1]);
 }
 
+export function bulletQualityLabel(quality: string, locale: string = "fr") {
+  const map: Record<string, Record<string, string>> = {
+    fr: { weak: "Faible", average: "Moyen", strong: "Fort" },
+    en: { weak: "Weak", average: "Average", strong: "Strong" },
+    ar: { weak: "ضعيف", average: "متوسط", strong: "قوي" },
+  };
+  return (map[locale] ?? map.fr)[quality] ?? quality;
+}
+
+export function paywallHeadline(score: number, locale: string = "fr") {
+  if (locale === "en") {
+    if (score >= 85) return "A strong base — unlock the full action plan.";
+    if (score >= 70) return "Good potential — see exactly what to fix next.";
+    if (score >= 55) return "Clear gaps — unlock the prioritised diagnosis.";
+    return "Significant gaps — unlock concrete rewrites.";
+  }
+  if (locale === "ar") {
+    if (score >= 85) return "أساس قوي — افتح خطة العمل الكاملة.";
+    if (score >= 70) return "إمكانيات جيدة — اعرف ماذا تصلّح بالضبط.";
+    if (score >= 55) return "ثغرات واضحة — افتح التشخيص حسب الأولوية.";
+    return "ثغرات مهمة — افتح إعادة الصياغة الملموسة.";
+  }
+  if (score >= 85) return "Base solide — débloquez le plan d’action complet.";
+  if (score >= 70) return "Bon potentiel — voyez exactement quoi corriger.";
+  if (score >= 55) return "Des écarts clairs — débloquez le diagnostic priorisé.";
+  return "Des lacunes importantes — débloquez des réécritures concrètes.";
+}
+
 export function clampScore(n: number) {
   return Math.max(0, Math.min(100, Math.round(n)));
 }

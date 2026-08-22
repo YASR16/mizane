@@ -36,6 +36,11 @@ export default function OptimizePage({ params }: { params: Promise<{ id: string 
       }
       setLocked(!json.optimizerUnlocked);
       if (json.paymentsEnabled === false) setPaymentsEnabled(false);
+      void fetch("/api/analytics", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "optimizer_viewed", analysisId: id, path: `/optimiser/${id}` }),
+      });
       if (!json.optimizerUnlocked) {
         void fetch("/api/analytics", {
           method: "POST",

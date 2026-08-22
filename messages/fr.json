@@ -87,8 +87,8 @@
       { "title": "Personnalisation", "body": "Recommandations adaptées à votre profil, au marché choisi et au poste visé." }
     ],
     "steps": [
-      { "title": "Uploadez", "body": "PDF ou DOCX. Optionnellement le poste visé, le pays cible ou une offre." },
-      { "title": "Scan", "body": "Extraction réelle du document, puis analyse structurée." },
+      { "title": "Déposez", "body": "PDF ou DOCX. Optionnellement le poste visé, le pays cible ou une offre." },
+      { "title": "Analyse", "body": "Extraction réelle du document, puis diagnostic structuré." },
       { "title": "Score", "body": "Vous voyez un score, des points forts et des problèmes concrets." },
       { "title": "Corrigez", "body": "Débloquez le rapport pour le plan d’action, puis postulez." }
     ],
@@ -137,7 +137,7 @@
     "optimizedIncludes": [
       "Tout le rapport d'analyse",
       "CV réécrit par IA",
-      "Version ATS-friendly",
+      "Version compatible ATS",
       "Résumé professionnel amélioré",
       "Expériences reformulées",
       "Optimisation des mots-clés",

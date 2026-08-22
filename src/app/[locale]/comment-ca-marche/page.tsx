@@ -9,7 +9,7 @@ export const metadata = pageMetadata({
 
 export default function HowPage() {
   const steps = [
-    ["Uploadez", "PDF ou DOCX. Ajoutez le poste visé ou une offre si vous l’avez."],
+    ["Déposez", "PDF ou DOCX. Ajoutez le poste visé ou une offre si vous l’avez."],
     ["Extraction réelle", "Nous lisons le fichier. Un scan image est signalé, pas maquillé."],
     ["Analyse structurée", "Contact, structure, ATS, mots-clés, expériences, langues. Résultat JSON, pas un paragraphe vague."],
     ["Aperçu gratuit", "Score + 2 forces + 2 problèmes. Assez pour juger si l’outil a vu juste."],

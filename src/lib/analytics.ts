@@ -77,18 +77,24 @@ export async function trackEvent(input: {
 
 export const funnelEvents = [
   "landing_visit",
+  "registration_started",
+  "registration_completed",
   "upload_started",
   "upload_completed",
   "analysis_started",
   "analysis_completed",
+  "analysis_viewed",
   "free_result_viewed",
   "paywall_view",
+  "optimizer_viewed",
+  "cta_clicked",
   "checkout_started",
   "payment_success",
   "payment_failed",
   "report_unlocked",
   "optimizer_purchase",
   "job_match_used",
+  "cv_optimized",
 ] as const;
 
 export type FunnelEvent = (typeof funnelEvents)[number];

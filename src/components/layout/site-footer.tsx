@@ -43,6 +43,9 @@ export async function SiteFooter() {
             <li>
               <Link href="/a-propos">{t("about")}</Link>
             </li>
+            <li>
+              <Link href="/retour-beta">Retour bêta</Link>
+            </li>
           </ul>
         </div>
         <div>

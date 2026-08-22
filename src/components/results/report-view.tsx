@@ -5,7 +5,7 @@ import { Link } from "@/i18n/routing";
 import { ScoreRing } from "@/components/results/score-ring";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { formatMad } from "@/lib/utils";
+import { bulletQualityLabel, formatMad } from "@/lib/utils";
 import { products } from "@/lib/pricing";
 import type { AnalysisResult, Finding } from "@/lib/analysis/schema";
 import { DeleteCvButton } from "@/components/account/delete-cv-button";
@@ -71,7 +71,7 @@ export function ReportView({ id }: { id: string }) {
             {exp.bullets.map((b) => (
               <li key={b.original} className="rounded-lg bg-paper-2 p-3">
                 <p>{b.original}</p>
-                <p className="mt-1 text-xs uppercase text-ink-soft">{b.quality}</p>
+                <p className="mt-1 text-xs text-ink-soft">{bulletQualityLabel(b.quality)}</p>
                 {b.suggestion ? <p className="mt-1 text-ink-soft">{b.suggestion}</p> : null}
               </li>
             ))}
@@ -89,7 +89,7 @@ export function ReportView({ id }: { id: string }) {
       ),
     },
     {
-      title: "5. Keywords",
+      title: "5. Mots-clés",
       score: result.keyword_score,
       body: (
         <>
@@ -165,7 +165,7 @@ export function ReportView({ id }: { id: string }) {
       <Card className="mt-10 p-8">
         <h2 className="font-display text-2xl">Optimisez maintenant votre CV pour ce poste</h2>
         <p className="mt-2 text-sm text-ink-soft">
-          Version ATS-friendly, résumé et expériences reformulés — {formatMad(products.optimized.priceMad)}, paiement unique.
+          Version compatible ATS, résumé et expériences reformulés — {formatMad(products.optimized.priceMad)}, paiement unique.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>

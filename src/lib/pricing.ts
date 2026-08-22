@@ -20,7 +20,7 @@ export const products = {
     includes: [
       "Tout le rapport d'analyse",
       "CV réécrit par IA",
-      "Version ATS-friendly",
+      "Version compatible ATS",
       "Résumé professionnel amélioré",
       "Expériences reformulées",
       "Optimisation des mots-clés",

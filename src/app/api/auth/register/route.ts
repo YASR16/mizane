@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/db";
-import { rateLimit, clientIp } from "@/lib/analytics";
+import { rateLimit, clientIp, trackEvent } from "@/lib/analytics";
 import { attachGuestToUser } from "@/lib/guest";
 
 export async function POST(req: NextRequest) {
@@ -29,6 +29,14 @@ export async function POST(req: NextRequest) {
 
   const guestToken = (await cookies()).get("mizane_guest")?.value;
   const attached = await attachGuestToUser(user.id, guestToken);
+
+  await trackEvent({
+    name: "registration_completed",
+    userId: user.id,
+    locale: body.locale ?? "fr",
+    path: "/inscription",
+    meta: { attached: Boolean(attached) },
+  });
 
   return NextResponse.json({ id: user.id, attached });
 }

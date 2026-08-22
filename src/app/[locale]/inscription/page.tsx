@@ -15,6 +15,11 @@ export default function RegisterPage() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    void fetch("/api/analytics", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "registration_started", path: "/inscription" }),
+    });
     const res = await fetch("/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

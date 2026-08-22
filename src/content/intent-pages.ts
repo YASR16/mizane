@@ -237,7 +237,7 @@ export const intentPages: IntentPage[] = [
         heading: "Mots-clés utiles — s’ils sont vrais",
         paragraphs: [
           "Playwright, Cypress, Selenium, Postman, Jira, TestRail, CI/CD, API, régression. Reprenez ceux de l’offre. Ajoutez un chiffre : 80 scénarios, 3 releases / mois, −40 % de régression manuelle.",
-          "Uploadez le CV et collez l’offre SDET ou « testeur fonctionnel ». L’analyse montre l’écart. Le rapport détaille quoi réécrire avant d’envoyer.",
+          "Déposez le CV et collez l’offre SDET ou « testeur fonctionnel ». L’analyse montre l’écart. Le rapport détaille quoi réécrire avant d’envoyer.",
         ],
       },
     ],
@@ -245,6 +245,93 @@ export const intentPages: IntentPage[] = [
       {
         q: "Un testeur manuel peut-il viser un poste automation ?",
         a: "Oui si le CV montre le chemin (cours, projet, 10 scripts) sans se prétendre SDET senior. L’entretien ira chercher la preuve.",
+      },
+    ],
+  },
+  {
+    slug: "creer-cv",
+    title: "Créer un CV au Maroc : structure claire avant la mise en page",
+    description:
+      "Créer un CV efficace au Maroc commence par le contenu extractible : contact, sections, preuves. Mizane analyse le fichier pour montrer ce qui bloque avant l’envoi.",
+    h1: "Créer un CV : d’abord lisible, ensuite soigné",
+    sections: [
+      {
+        heading: "La mise en page ne remplace pas le fond",
+        paragraphs: [
+          "Beaucoup de modèles Canva au Maroc sont beaux à l’écran et illisibles pour un ATS : deux colonnes, icônes, PDF image. Créer un CV sérieux, c’est d’abord un texte sélectionnable, un téléphone (+212), un e-mail pro, des sections nommées.",
+          "Ensuite seulement : typographie sobre, une colonne, marges. Mizane ne « crée » pas le CV à votre place dans l’aperçu gratuit : il dit ce qui manque dans le fichier que vous avez déjà.",
+        ],
+      },
+      {
+        heading: "Étudiant, jeune diplômé, reconversion",
+        paragraphs: [
+          "Sans longue expérience, montrez stages, PFE, projets, asso — avec outils et résultats. « Motivé et dynamique » ne remplace pas un projet nommé.",
+          "Analysez votre brouillon PDF avant d’envoyer dix candidatures. L’aperçu gratuit donne le score et deux problèmes concrets ; le rapport 49 DH détaille les réécritures.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Mizane génère-t-il un CV vierge ?",
+        a: "L’offre 99 DH propose une version optimisée à partir de votre fichier existant, pas un CV inventé. L’aperçu gratuit ne génère pas de CV.",
+      },
+    ],
+  },
+  {
+    slug: "analyse-cv-gratuit",
+    title: "Analyse CV gratuite au Maroc : score et problèmes réels",
+    description:
+      "Analyse CV gratuite : score global, barres ATS/structure/mots-clés, 2 points forts et 2 problèmes tirés de votre fichier. Rapport détaillé 49 DH si l’aperçu est utile.",
+    h1: "Analyse CV gratuite : ce qui est inclus (et ce qui ne l’est pas)",
+    sections: [
+      {
+        heading: "Gratuit ≠ teaser vide",
+        paragraphs: [
+          "L’analyse gratuite lit votre PDF ou DOCX. Vous voyez un score, des sous-scores, deux forces et deux écarts avec une explication courte. Si le fichier est scanné, on le dit clairement.",
+          "Ce n’est pas un quiz générique. Les chiffres viennent de votre document. Le rapport payant (49 DH, une fois) ajoute le plan priorisé, les exemples avant/après, les mots-clés manquants et le PDF.",
+        ],
+      },
+      {
+        heading: "Pourquoi payer ensuite ?",
+        paragraphs: [
+          "Parce que corriger « téléphone absent » est évident ; réécrire cinq puces d’expérience avec preuves et outils demande plus de travail. Le paiement reste optionnel : si l’aperçu ne convainc pas, vous ne payez rien.",
+          "Pendant la bêta publique, le paiement peut afficher « bientôt disponible ». L’analyse gratuite, elle, fonctionne.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Faut-il créer un compte pour l’analyse gratuite ?",
+        a: "Vous pouvez analyser en session ; un compte aide à retrouver l’historique et à supprimer vos données.",
+      },
+    ],
+  },
+  {
+    slug: "score-cv",
+    title: "Score CV : comment lire le diagnostic Mizane",
+    description:
+      "Le score CV Mizane combine ATS, structure, mots-clés, expérience et lisibilité. Ce n’est pas une promesse d’entretien ni le score d’un ATS employeur précis.",
+    h1: "Score CV : une note pour prioriser, pas une garantie",
+    sections: [
+      {
+        heading: "Ce que la note mesure",
+        paragraphs: [
+          "Le score global pondère plusieurs signaux observables dans le fichier : contact, sections, densité des puces, mots-clés du poste cible, qualité d’extraction. Un score bas sur un PDF image n’est pas un jugement sur votre carrière.",
+          "Les barres (ATS, structure, mots-clés, expérience) aident à choisir quoi corriger en premier. Un bon score global avec un ATS faible signifie souvent un fichier difficile à parser.",
+        ],
+      },
+      {
+        heading: "Ce que la note ne promet pas",
+        paragraphs: [
+          "Pas de classement Google, pas de « 100 % ATS », pas d’entretien garanti. Un recruteur humain lit autrement qu’un parseur. Mizane accélère le diagnostic technique avant l’envoi.",
+          "Comparez votre score avant/après correction sur le même poste cible. C’est l’usage le plus utile.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Quel score faut-il pour postuler ?",
+        a: "Il n’y a pas de seuil magique. Visez surtout de corriger les problèmes bloquants (contact, scan, puces vides) avant d’envoyer.",
       },
     ],
   },
