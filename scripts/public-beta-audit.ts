@@ -146,9 +146,9 @@ async function main() {
     }
     const form = new FormData();
     form.append("file", new Blob([readFileSync(path)], { type: "application/pdf" }), f.file);
-    form.append("targetRole", "QA Engineer");
+    form.append("targetRole", f.label.includes("AR") ? "مهندس ضمان الجودة" : "QA Engineer");
     form.append("targetCountry", "MA");
-    form.append("locale", "fr");
+    form.append("locale", f.label.includes("AR") ? "ar" : "fr");
     const up = await fetch(BASE + "/api/analyses", { method: "POST", body: form, headers: { Cookie: jar } });
     jar = mergeCookie(jar, cookieFrom(up));
     const body = (await up.json()) as { id?: string; error?: string };
