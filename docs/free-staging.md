@@ -8,8 +8,8 @@ Public staging runs on **Back4App Containers Free** (≈256 MB RAM, USA, port 80
 
 | Item | Value |
 | --- | --- |
-| Public URL (current temporary) | `https://mizane-kntol4ix.b4a.run` |
-| Previous temporary URL | `https://mizane-fft13q12.b4a.run` (expired → CloudFront 404) |
+| Public URL (current temporary) | `https://mizane-4bcpaj3l.b4a.run` |
+| Previous temporary URLs | `mizane-kntol4ix`, `mizane-fft13q12` (expired → CloudFront 404) |
 | Health | `GET /api/health` → `{"ok":true,"env":"staging","paymentsEnabled":false}` |
 | Database | Neon Free project `floral-sky-97693789` (`neondb`) |
 | Storage | `STORAGE_DRIVER=postgres` (private BYTEA) |
@@ -65,7 +65,7 @@ Do **not** add a credit card to bypass any of the above.
 ## Public verification
 
 ```bash
-AUDIT_BASE=https://mizane-kntol4ix.b4a.run npx tsx scripts/public-beta-audit.ts
+AUDIT_BASE=https://mizane-4bcpaj3l.b4a.run npx tsx scripts/public-beta-audit.ts
 ```
 
 Covers health, locales, register/login, CV upload/analysis, hostile uploads, payment lock, IDOR, privacy delete, noindex.

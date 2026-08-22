@@ -5,7 +5,7 @@
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 
-const BASE = (process.env.AUDIT_BASE ?? "https://mizane-kntol4ix.b4a.run").replace(/\/$/, "");
+const BASE = (process.env.AUDIT_BASE ?? "https://mizane-4bcpaj3l.b4a.run").replace(/\/$/, "");
 const stamp = Date.now();
 const email = `beta.${stamp}@mizane.test`;
 const password = `BetaTest!${stamp.toString().slice(-6)}`;

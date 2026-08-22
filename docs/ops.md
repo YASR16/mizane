@@ -3,7 +3,7 @@
 Bêta 0 DH : voir `docs/free-staging.md`.
 
 Hôte actuel : **Back4App Containers Free** (≈256 MB, USA).
-URL temporaire actuelle : `https://mizane-kntol4ix.b4a.run` (l’ancienne `mizane-fft13q12` a expiré).
+URL temporaire actuelle : `https://mizane-4bcpaj3l.b4a.run` (les anciennes `mizane-kntol4ix` / `mizane-fft13q12` ont expiré).
 Neon Free `floral-sky-97693789` est branché via `DATABASE_URL` **uniquement** dans Back4App (jamais git/chat).
 Paiements : `PAYMENT_PROVIDER=disabled`. Ne pas upgrader Back4App ni acheter de domaine pour la bêta.
 
